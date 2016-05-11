@@ -1,0 +1,19 @@
+<html ng-app="recorder">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="/recorder/js/js.js"></script>
+    <script src="/recorder/js/lame.all.min.js"></script>
+
+    <body ng-controller="recorderCtrl as ctrl">
+        <div>
+            <button ng-click="ctrl.startRecording()" ng-show="!!!ctrl.recording">Start recording</button>
+            <button ng-click="ctrl.stopRecording()" ng-show="ctrl.recording">Stop recording</button>
+            <button ng-click="ctrl.uploadMp3()" ng-show="ctrl.mp3Blob">Upload {{ctrl.mp3FileSize}}</button>
+        </div>
+
+        <div>
+            <audio ng-show="ctrl.mp3PreviewUrl" controls id="recorder-mp3-preview">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </body>
+</html>
